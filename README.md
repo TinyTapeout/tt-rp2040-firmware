@@ -15,25 +15,28 @@ A simple firmware for the Tiny Tapeout breakout board with the RP2040 microcontr
 
 The firmware supports the following commands over the USB serial port:
 
-| Command              | Description                                                  |
-| -------------------- | ------------------------------------------------------------ |
-| `ping`               | Returns `pong=1`                                             |
-| `bootloader`         | Reboots the board into the UF2 bootloader mode               |
-| `select-design <id>` | Selects the active design on the Tiny Tapeout Mux controller |
-| `get-clock`          | Returns the current clock frequency (on CLK pin)             |
-| `set-clock <params>` | Configure the clock generator, see examples below            |
+| Command              | Description                                                     |
+| -------------------- | --------------------------------------------------------------- |
+| `ping`               | Returns `pong=1`                                                |
+| `bootloader`         | Reboots the board into the UF2 bootloader mode                  |
+| `select-design <id>` | Selects the active design on the Tiny Tapeout Mux controller    |
+| `get-clock`          | Returns the current clock frequency (on CLK pin)                |
+| `set-clock <params>` | Configure the clock generator, see "Clock configurations" below |
 
-### `set-clock` Examples
+### Clock Configurations
 
-| Frequency | Command                                |
-| --------- | -------------------------------------- |
-| 50 MHz    | `set-clock 1 1500000000 5 3 1 1`       |
-| 48 MHz    | `set-clock 1 1536000000 4 4 1 1`       |
-| 20 MHz    | `set-clock 1 1440000000 6 2 5 3`       |
-| 12 MHz    | `set-clock 1 1440000000 6 2 9 5`       |
-| 10 MHz    | `set-clock 1 1500000000 5 3 9 5`       |
-| 1 MHz     | `set-clock 1 1500000000 5 3 99 50`     |
-| 10 kHz    | `set-clock 1 1500000000 5 3 9999 5000` |
+| Frequency  | Command                                | Common use cases |
+| ---------- | -------------------------------------- | ---------------- |
+| 50 MHz     | `set-clock 1 1500000000 5 3 1 1`       |                  |
+| 48 MHz     | `set-clock 1 1536000000 4 4 1 1`       | USB              |
+| 40 MHz     | `set-clock 1 1440000000 6 3 1 1`       |                  |
+| 25.179 MHz | `set-clock 2 1410000000 7 2 3 2`       | VGA              |
+| 24 MHz     | `set-clock 1 1536000000 4 4 3 2`       |                  |
+| 20 MHz     | `set-clock 1 1440000000 6 2 5 3`       |                  |
+| 12 MHz     | `set-clock 1 1440000000 6 2 9 5`       |                  |
+| 10 MHz     | `set-clock 1 1500000000 5 3 9 5`       |                  |
+| 1 MHz      | `set-clock 1 1500000000 5 3 99 50`     |                  |
+| 10 kHz     | `set-clock 1 1500000000 5 3 9999 5000` |                  |
 
 ## License
 
