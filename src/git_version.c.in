@@ -1,0 +1,14 @@
+/**
+ * Copyright (c) 2023 Uri Shaked
+ * SPDX-License-Identifier: Apache-2.0
+ */
+ 
+#include "git_version.h"
+
+const char *git_hash = "@GIT_HASH@";
+
+// Make it easy to locate the git hash in the binary
+static const char *git_hash_static = "git_hash=@GIT_HASH@";
+const char * __attribute__((used)) git_hash_keep() {
+  return git_hash_static;
+}

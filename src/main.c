@@ -13,6 +13,7 @@
 
 #include "clkgen.h"
 #include "ctrl.h"
+#include "git_version.h"
 #include "pins.h"
 
 bool readline(char *buf, int len)
@@ -31,6 +32,13 @@ bool readline(char *buf, int len)
 
   buf[i] = '\0';
   return stdio_usb_connected();
+}
+
+void print_firmware_info()
+{
+  printf("firmware=TinyTapeout\n");
+  printf("version=0.1.0-%s\n", git_hash);
+  printf("protocol=1\n");
 }
 
 // Default clock configuration - 10 MHz output
@@ -57,6 +65,10 @@ void process_commands()
     if (!strcmp(line, "ping"))
     {
       printf("pong=1\n");
+    }
+    else if (!strcmp(line, "firmware-info"))
+    {
+      print_firmware_info();
     }
     else if (!strcmp(line, "bootloader"))
     {
@@ -108,8 +120,7 @@ int main()
       sleep_ms(100);
     }
 
-    printf("firmware=TinyTapeout\n");
-    printf("version=1\n");
+    print_firmware_info();
     process_commands();
   }
 

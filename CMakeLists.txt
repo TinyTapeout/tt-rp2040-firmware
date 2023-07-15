@@ -5,6 +5,9 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 pico_sdk_init()
 
+include(git_revision.cmake)
+GitRevisionSetup()
+
 add_executable(tt_firmware
   src/clkgen.c
   src/ctrl.c
@@ -18,6 +21,7 @@ pico_add_extra_outputs(tt_firmware)
 target_link_libraries(
   tt_firmware
   pico_stdlib
+  git_version
   hardware_clocks
   hardware_pio
   hardware_pwm

@@ -17,6 +17,7 @@ The firmware supports the following commands over the USB serial port:
 
 | Command              | Description                                                     |
 | -------------------- | --------------------------------------------------------------- |
+| `firmware-info`      | Returns the firmware version                                    |
 | `ping`               | Returns `pong=1`                                                |
 | `bootloader`         | Reboots the board into the UF2 bootloader mode                  |
 | `select-design <id>` | Selects the active design on the Tiny Tapeout Mux controller    |
