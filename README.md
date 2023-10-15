@@ -5,18 +5,18 @@ A simple firmware for the Tiny Tapeout breakout board with the RP2040 microcontr
 ## Pinout
 
 | Pin | Function     | Signal    |
-| --- | ------------ | --------- |
-| 0   | Controller   | SEL_RST_N |
-| 1   | Controller   | SEL_INC   |
-| 2   | Controller   | ENA       |
-| 3   | Clock Output | CLK       |
+|-----|--------------|-----------|
+| 0   | Clock output | CLK       |
+| 6   | Controller   | SEL_INC   |
+| 7   | Controller   | SEL_RST_N |
+| 8   | Controller   | ENA       |
 
 ## Commands
 
 The firmware supports the following commands over the USB serial port:
 
 | Command              | Description                                                     |
-| -------------------- | --------------------------------------------------------------- |
+|----------------------|-----------------------------------------------------------------|
 | `firmware-info`      | Returns the firmware version                                    |
 | `ping`               | Returns `pong=1`                                                |
 | `bootloader`         | Reboots the board into the UF2 bootloader mode                  |
@@ -27,7 +27,7 @@ The firmware supports the following commands over the USB serial port:
 ### Clock Configurations
 
 | Frequency  | Command                                | Common use cases |
-| ---------- | -------------------------------------- | ---------------- |
+|------------|----------------------------------------|------------------|
 | 50 MHz     | `set-clock 1 1500000000 5 3 1 1`       |                  |
 | 48 MHz     | `set-clock 1 1536000000 4 4 1 1`       | USB              |
 | 40 MHz     | `set-clock 1 1440000000 6 3 1 1`       |                  |
