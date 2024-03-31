@@ -1,3 +1,7 @@
+# ⚠️ Do not use ⚠️
+
+This firmware is **no longer supported** - it has been replaced by [tt-commander-app](https://github.com/TinyTapeout/tt-commander-app) and [tt-micropython-firmware](https://github.com/TinyTapeout/tt-micropython-firmware).
+
 # tt-rp2040-firmware
 
 A simple firmware for the Tiny Tapeout breakout board with the RP2040 microcontroller.
